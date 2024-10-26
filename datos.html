@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data recibida</title>
+<script>
+function cargardata() {
+const xmlData = localStorage.getItem('usuarioXML');
+            if (xmlData) {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlData, 'application/xml');
+                const nombre = xmlDoc.getElementsByTagName('nombre')[0].textContent;
+                const email = xmlDoc.getElementsByTagName('email')[0].textContent;
+                const number = xmlDoc.getElementsByTagName('number')[0].textContent;
+
+            document.getElementById('resultado').innerHTML = `<h2>Datos recibidos</h2>
+            <p><strong>Nombre: </strong>${nombre}</p>
+            <p><strong>Email: </strong>${email}</p>
+            <p><strong>number: </strong>${number}</p>`
+            } else {
+                document.getElementById('resultado').innerHTML = '<p>No hay data</p>';
+            }
+        }
+        function Eliminar() {
+            const xmlData = localStorage.removeItem('usuarioXML');
+            window.location.href = 'Formulario.html';
+        }
+
+</script>
+</head>
+
+<body onload="cargardata()">
+    <h1>Datos</h1>
+
+    <div id="resultado"></div>
+
+    <button onclick="Eliminar()">Cambiar data</button>
+</body>
+</html>
