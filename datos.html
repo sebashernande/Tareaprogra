@@ -19,6 +19,8 @@ const xmlData = localStorage.getItem('usuarioXML');
             <p><strong>Nombre: </strong>${nombre}</p>
             <p><strong>Email: </strong>${email}</p>
             <p><strong>number: </strong>${number}</p>`
+            
+            window.alert("Hola bienvenido", nombre ,"Un placer")
             } else {
                 document.getElementById('resultado').innerHTML = '<p>No hay data</p>';
             }
@@ -36,6 +38,6 @@ const xmlData = localStorage.getItem('usuarioXML');
 
     <div id="resultado"></div>
 
-    <button onclick="Eliminar()">Cambiar data</button>
+    <button onclick="Eliminar()">eliminar y Cambiar data</button>
 </body>
 </html>
